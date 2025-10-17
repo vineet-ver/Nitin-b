@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Bhai ❤️</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+            color: #fff;
+            position: relative;
+        }
+
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: radial-gradient(circle, #ff6ec7 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 8s infinite ease-in-out;
+            opacity: 0.6;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) translateX(0); opacity: 0.6; }
+            50% { transform: translateY(-100px) translateX(50px); opacity: 1; }
+        }
+
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background: #ffd700;
+            animation: fall 4s linear infinite;
+            z-index: 2;
+        }
+
+        @keyframes fall {
+            to { transform: translateY(100vh) rotate(360deg); }
+        }
+
+        .balloon {
+            position: fixed;
+            bottom: -100px;
+            animation: rise 15s infinite ease-in;
+            z-index: 2;
+            font-size: 3rem;
+            opacity: 0.8;
+        }
+
+        @keyframes rise {
+            to { 
+                transform: translateY(-110vh) translateX(100px);
+                opacity: 0;
+            }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 60px;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 4rem;
+            background: linear-gradient(45deg, #ff6ec7, #ffd700, #00f2ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 30px rgba(255, 110, 199, 0.5);
+            animation: glow 2s ease-in-out infinite alternate;
+            margin-bottom: 10px;
+        }
+
+        @keyframes glow {
+            from { filter: drop-shadow(0 0 10px rgba(255, 110, 199, 0.5)); }
+            to { filter: drop-shadow(0 0 30px rgba(255, 110, 199, 0.9)); }
+        }
+
+        .header p {
+            font-size: 1.3rem;
+            color: #ffd700;
+            font-weight: 300;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            padding: 40px;
+            margin: 30px 0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            animation: fadeInUp 1s ease-out;
+            transition: all 0.3s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .glass-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 50px rgba(255, 110, 199, 0.3);
+            border: 1px solid rgba(255, 110, 199, 0.3);
+        }
+
+        .image-card {
+            width: 300px;
+            height: 300px;
+            margin: 30px auto;
+            border-radius: 20px;
+            background: linear-gradient(45deg, #ff6ec7, #ffd700);
+            padding: 3px;
+            animation: rotate3d 20s infinite linear;
+            position: relative;
+            overflow: hidden;
+        }
+
+        @keyframes rotate3d {
+            0% { transform: perspective(1000px) rotateY(0deg); }
+            100% { transform: perspective(1000px) rotateY(360deg); }
+        }
+
+        .image-card:hover {
+            animation-play-state: paused;
+            transform: scale(1.05) perspective(1000px) rotateY(0deg);
+        }
+
+        .image-inner {
+            width: 100%;
+            height: 100%;
+            background-image: url('image.jpg');
+            backdrop-filter: blur(10px);
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            transition: all 0.3s ease;
+        }
+
+        .image-card:hover .image-inner {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .wish-text {
+            font-size: 1.2rem;
+            line-height: 2;
+            text-align: center;
+            color: #e0e0e0;
+            margin: 20px 0;
+        }
+
+        .wish-text strong {
+            color: #ffd700;
+            font-weight: 600;
+        }
+
+        .hinglish-section {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.15rem;
+            line-height: 1.9;
+            color: #f0f0f0;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .section-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5rem;
+            color: #ff6ec7;
+            text-align: center;
+            margin-bottom: 30px;
+            text-shadow: 0 0 20px rgba(255, 110, 199, 0.5);
+        }
+
+        .memories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .memory-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+
+        .memory-card:hover {
+            transform: translateY(-15px) scale(1.03);
+            background: rgba(255, 110, 199, 0.1);
+            border: 1px solid rgba(255, 110, 199, 0.4);
+            box-shadow: 0 20px 60px rgba(255, 110, 199, 0.4);
+        }
+
+        .memory-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .memory-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #ffd700;
+            margin-bottom: 10px;
+        }
+
+        .memory-text {
+            font-size: 0.95rem;
+            color: #d0d0d0;
+            line-height: 1.6;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 60px;
+            font-size: 1.1rem;
+            color: #ffd700;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.5rem;
+            }
+            .header p {
+                font-size: 1rem;
+            }
+            .glass-card {
+                padding: 25px;
+            }
+            .image-card {
+                width: 250px;
+                height: 250px;
+            }
+            .wish-text {
+                font-size: 1rem;
+            }
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="particles" id="particles"></div>
+
+    <div class="container">
+        <div class="header">
+            <h1>Happy Birthday Bhai ❤️</h1>
+            <p>To the most amazing brother in the world!</p>
+        </div>
+
+        <div class="glass-card">
+            <div class="image-card">
+                <div class="image-inner">🎂</div>
+            </div>
+            <div class="wish-text">
+                <strong>Janamdin Mubarak Ho, Bhai! 🎉</strong><br>
+                Aaj ka din sirf tumhara hai, kyunki ek saal pehle aaj ke din duniya ko<br>
+                ek superhero mila tha... <strong>MERA BHAI!</strong> 💪✨
+            </div>
+        </div>
+
+        <div class="glass-card">
+            <h2 class="section-title">Dil Se Wishes 💖</h2>
+            <div class="hinglish-section">
+                Bhai, tu jaanta hai na kitna special hai mere liye? 🥺<br>
+                Bachpan se lekar aaj tak, tune hamesha mera saath diya hai.<br>
+                Chahe woh 2 baje raat ko ice cream khaane ki demand ho,<br>
+                ya kisi se ladai ho, tu hamesha aage aata hai. 🛡️<br><br>
+                
+                <strong>Tu sirf bhai nahi hai, tu mera best friend hai, mera partner-in-crime hai!</strong> 🤝<br><br>
+                
+                Iss saal bhi teri sab wishes puri ho, tu hamesha khush rahe,<br>
+                aur tu jo bhi karna chahta hai life mein, woh sab achieve kare. 🌟<br><br>
+                
+                Aur haan... tu chahe kitna bada ho jaye,<br>
+                mere liye tu hamesha wahi chhota sa annoying bhai hi rahega! 😂💕<br><br>
+                
+                <strong style="color: #ff6ec7; font-size: 1.3rem;">Love you loads, Bhai! 🎈</strong>
+            </div>
+        </div>
+
+        <div class="glass-card">
+            <h2 class="section-title">Our Special Memories 🌈</h2>
+            <div class="memories-grid">
+                <div class="memory-card">
+                    <div class="memory-icon">🍕</div>
+                    <div class="memory-title">Late Night Feasts</div>
+                    <div class="memory-text">Yaad hai raat ke 2 baje chori chupke kitchen raid karna? Best memories! 😋</div>
+                </div>
+                <div class="memory-card">
+                    <div class="memory-icon">🎮</div>
+                    <div class="memory-title">Gaming Battles</div>
+                    <div class="memory-text">Countless hours fighting over who's the better gamer. Spoiler: Maine jeeta! 😎</div>
+                </div>
+                <div class="memory-card">
+                    <div class="memory-icon">🎬</div>
+                    <div class="memory-title">Movie Marathons</div>
+                    <div class="memory-text">Weekend movie nights with endless popcorn aur debates - pure gold! 🍿</div>
+                </div>
+                <div class="memory-card">
+                    <div class="memory-icon">🚗</div>
+                    <div class="memory-title">Random Drives</div>
+                    <div class="memory-text">Bina kisi plan ke nikalna aur hours tak ghumna - therapy! 🌃</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="glass-card">
+            <div class="wish-text" style="font-size: 1.3rem;">
+                <strong style="color: #ff6ec7;">Once again, Happy Birthday Bhai! 🎊</strong><br>
+                May this year bring you endless joy, success, and all the happiness you deserve! 🌟<br><br>
+                <em style="color: #ffd700;">- From Your Favorite Sister 😉💕</em>
+            </div>
+        </div>
+
+        <div class="footer">
+            ✨ Made with lots of love & memories ✨
+        </div>
+    </div>
+
+    <script>
+        // Create floating particles
+        const particlesContainer = document.getElementById('particles');
+        for (let i = 0; i < 50; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.top = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 8 + 's';
+            particle.style.animationDuration = (Math.random() * 5 + 5) + 's';
+            particlesContainer.appendChild(particle);
+        }
+
+        // Create confetti
+        for (let i = 0; i < 30; i++) {
+            const confetti = document.createElement('div');
+            confetti.className = 'confetti';
+            confetti.style.left = Math.random() * 100 + '%';
+            confetti.style.animationDelay = Math.random() * 4 + 's';
+            confetti.style.background = ['#ffd700', '#ff6ec7', '#00f2ff', '#7bff00'][Math.floor(Math.random() * 4)];
+            document.body.appendChild(confetti);
+        }
+
+        // Create balloons
+        const balloonEmojis = ['🎈', '🎉', '🎊', '🎁', '🎂'];
+        for (let i = 0; i < 10; i++) {
+            const balloon = document.createElement('div');
+            balloon.className = 'balloon';
+            balloon.textContent = balloonEmojis[Math.floor(Math.random() * balloonEmojis.length)];
+            balloon.style.left = Math.random() * 100 + '%';
+            balloon.style.animationDelay = Math.random() * 15 + 's';
+            balloon.style.animationDuration = (Math.random() * 10 + 10) + 's';
+            document.body.appendChild(balloon);
+        }
+
+        // Add tilt effect to cards
+        const cards = document.querySelectorAll('.memory-card');
+        cards.forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                const rotateX = (y - centerY) / 10;
+                const rotateY = (centerX - x) / 10;
+                
+                card.style.transform = `translateY(-15px) scale(1.03) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0) scale(1) rotateX(0) rotateY(0)';
+            });
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.8s ease-out';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.glass-card').forEach(card => {
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
